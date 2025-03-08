@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 
-const Instruction = ({ children }) => {
-  return <Text style={styles.instruction}>{children}</Text>;
+const Instruction = ({ children, styling }) => {
+  return <Text style={[styles.instruction, styling]}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({

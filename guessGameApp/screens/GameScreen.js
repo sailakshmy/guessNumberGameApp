@@ -39,7 +39,6 @@ const GameScreen = ({ userChoice, setGameOver }) => {
     } else {
       minBoundary = currentGuess + 1;
     }
-    console.log(minBoundary, maxBoundary);
     const newGuess = generateRandomBetween(
       minBoundary,
       maxBoundary,
@@ -58,14 +57,20 @@ const GameScreen = ({ userChoice, setGameOver }) => {
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card>
-        <Instruction>Higher Or Lower</Instruction>
-        <View>
-          <PrimaryButton onPress={generateNextGuess.bind(this, "higher")}>
-            +
-          </PrimaryButton>
-          <PrimaryButton onPress={generateNextGuess.bind(this, "lower")}>
-            -
-          </PrimaryButton>
+        <Instruction styling={styles.customisedInstructionText}>
+          Higher Or Lower
+        </Instruction>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={generateNextGuess.bind(this, "higher")}>
+              +
+            </PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={generateNextGuess.bind(this, "lower")}>
+              -
+            </PrimaryButton>
+          </View>
         </View>
       </Card>
     </View>
@@ -85,6 +90,15 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     textAlign: "center",
     padding: 18,
+  },
+  buttonContainer: {
+    flex: 1,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  customisedInstructionText: {
+    marginBottom: 12,
   },
 });
 
