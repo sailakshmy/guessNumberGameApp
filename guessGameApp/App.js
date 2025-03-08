@@ -9,7 +9,7 @@ export default function App() {
   const [userChoice, setUserChoice] = useState();
   let screen = <StartGameScreen setUserChoice={setUserChoice} />;
   if (userChoice) {
-    screen = <GameScreen />;
+    screen = <GameScreen userChoice={userChoice} />;
   }
   return (
     <LinearGradient
