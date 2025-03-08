@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import Title from "../components/Title";
+import Colors from "../constants/colors";
 
 const GameScreen = () => {
   return (
@@ -18,8 +19,8 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 24,
-    color: "#ddb52f",
-    borderColor: "#ddb52f",
+    color: Colors.accent500,
+    borderColor: Colors.accent500,
     borderWidth: 2,
     textAlign: "center",
     padding: 18,
