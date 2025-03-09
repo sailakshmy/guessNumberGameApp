@@ -8,7 +8,7 @@ const Title = ({ children }) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontWeight: "bold",
+    fontFamily: "open-sans-bold",
     fontSize: 24,
     color: "white",
     borderColor: Colors.accent500,
