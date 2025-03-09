@@ -11,6 +11,7 @@ import StartGameScreen from "./screens/StartGameScreen";
 export default function App() {
   const [userChoice, setUserChoice] = useState();
   const [gameOver, setGameOver] = useState(true);
+  const [roundNumber, setRoundNumber] = useState(0);
   const [fontsLoaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
@@ -24,12 +25,22 @@ export default function App() {
     setGameOver(false);
   };
 
+  const startNewGameHandler = () => {
+    setUserChoice(null);
+    setRoundNumber(0);
+  };
   let screen = <StartGameScreen setUserChoice={chosenNumberHandler} />;
   if (userChoice) {
     screen = <GameScreen userChoice={userChoice} setGameOver={setGameOver} />;
   }
   if (gameOver && userChoice) {
-    screen = <GameOver />;
+    screen = (
+      <GameOver
+        userChoice={userChoice}
+        roundNumber={roundNumber}
+        onClickStartNewGame={startNewGameHandler}
+      />
+    );
   }
   return (
     <LinearGradient

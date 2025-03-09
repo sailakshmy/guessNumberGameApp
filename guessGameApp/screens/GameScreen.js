@@ -53,6 +53,11 @@ const GameScreen = ({ userChoice, setGameOver }) => {
       setGameOver(true);
     }
   }, [currentGuess]);
+
+  useEffect(() => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  }, []);
   return (
     <View style={styles.screenContainer}>
       <Title>Opponent's Guess</Title>
