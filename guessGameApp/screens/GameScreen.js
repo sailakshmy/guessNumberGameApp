@@ -21,7 +21,7 @@ function generateRandomBetween(min, max, exclude) {
 let minBoundary = 1;
 let maxBoundary = 100;
 
-const GameScreen = ({ userChoice, setGameOver }) => {
+const GameScreen = ({ userChoice, onGameOverEvent }) => {
   const initialGuess = generateRandomBetween(1, 100, userChoice);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [guessRounds, setGuessRounds] = useState([initialGuess]);
@@ -51,7 +51,7 @@ const GameScreen = ({ userChoice, setGameOver }) => {
 
   useEffect(() => {
     if (currentGuess === userChoice) {
-      setGameOver(true);
+      onGameOverEvent(guessRounds.length);
     }
   }, [currentGuess]);
 
@@ -82,7 +82,7 @@ const GameScreen = ({ userChoice, setGameOver }) => {
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.listContainer}>
         {/* {guessRounds?.map((guessRound) => (
           <Text key={guessRound}>{guessRound}</Text>
         ))} */}
@@ -123,6 +123,10 @@ const styles = StyleSheet.create({
   },
   customisedInstructionText: {
     marginBottom: 12,
+  },
+  listContainer: {
+    flex: 1,
+    padding: 16,
   },
 });
 

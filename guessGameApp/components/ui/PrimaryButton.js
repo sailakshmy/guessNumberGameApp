@@ -4,7 +4,6 @@ import Colors from "../../constants/colors";
 
 const PrimaryButton = ({ children, onPress }) => {
   const onPressHandler = () => {
-    console.log("Hi");
     onPress?.();
   };
   return (
