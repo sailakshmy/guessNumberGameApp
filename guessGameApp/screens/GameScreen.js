@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
-import { Alert, FlatList, StyleSheet, Text, View } from "react-native";
+import { Alert, FlatList, StyleSheet, View } from "react-native";
+import GuessListItem from "../components/game/GuessListItem";
 import NumberContainer from "../components/game/NumberContainer";
 import Card from "../components/ui/Card";
 import Instruction from "../components/ui/Instruction";
@@ -58,6 +59,8 @@ const GameScreen = ({ userChoice, setGameOver }) => {
     minBoundary = 1;
     maxBoundary = 100;
   }, []);
+
+  const guessRoundsLength = guessRounds?.length;
   return (
     <View style={styles.screenContainer}>
       <Title>Opponent's Guess</Title>
@@ -85,7 +88,12 @@ const GameScreen = ({ userChoice, setGameOver }) => {
         ))} */}
         <FlatList
           data={guessRounds}
-          renderItem={(itemData) => <Text>{itemData.item}</Text>}
+          renderItem={(itemData) => (
+            <GuessListItem
+              guess={itemData?.item}
+              roundNumber={guessRoundsLength - itemData?.index}
+            />
+          )}
           keyExtractor={(item) => item}
         />
       </View>
