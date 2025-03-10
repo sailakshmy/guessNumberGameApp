@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     padding: 48,
+    alignItems: "center",
   },
   title: {
     fontWeight: "bold",

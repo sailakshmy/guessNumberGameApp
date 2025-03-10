@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     textAlign: "center",
     padding: 18,
+    width: "80%",
   },
 });
 export default Title;
