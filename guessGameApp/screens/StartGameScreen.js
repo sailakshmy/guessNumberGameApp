@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import {
   Alert,
+  KeyboardAvoidingView,
+  ScrollView,
   StyleSheet,
   TextInput,
   useWindowDimensions,
@@ -38,39 +40,46 @@ const StartGameScreen = ({ setUserChoice }) => {
 
   const marginTop = height < 400 ? 30 : 100;
   return (
-    <View style={[styles.rootContainer, { marginTop }]}>
-      <Title>Guess My Number</Title>
-      <Card>
-        <Instruction>Enter a number</Instruction>
-        <TextInput
-          style={styles.numberInput}
-          maxLength={2}
-          keyboardType="number-pad"
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={enteredNumber}
-          onChangeText={onInputChange}
-        />
-        <View style={styles.buttonsContainer}>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-          </View>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={onClickConfirmButton}>
-              Confirm
-            </PrimaryButton>
-          </View>
+    <ScrollView style={styles.screen}>
+      <KeyboardAvoidingView behavior="position">
+        <View style={[styles.rootContainer, { marginTop }]}>
+          <Title>Guess My Number</Title>
+          <Card>
+            <Instruction>Enter a number</Instruction>
+            <TextInput
+              style={styles.numberInput}
+              maxLength={2}
+              keyboardType="number-pad"
+              autoCapitalize="none"
+              autoCorrect={false}
+              value={enteredNumber}
+              onChangeText={onInputChange}
+            />
+            <View style={styles.buttonsContainer}>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+              </View>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={onClickConfirmButton}>
+                  Confirm
+                </PrimaryButton>
+              </View>
+            </View>
+          </Card>
         </View>
-      </Card>
-    </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
 // const deviceHeight = Dimensions.get("window").height; // Will not be updated if the user changes the orientation while using the app
 
 const styles = StyleSheet.create({
-  rootContainer: {
+  screen: {
     flex: 1,
+  },
+  rootContainer: {
+    // flex: 1,
     // marginTop: deviceHeight < 400 ? 30 : 100,
     alignItems: "center",
   },
