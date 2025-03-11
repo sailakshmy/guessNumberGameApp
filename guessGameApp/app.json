@@ -3,7 +3,7 @@
     "name": "guessGameApp",
     "slug": "guessGameApp",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -27,11 +27,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "plugins": [
-      "expo-font"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "plugins": ["expo-font"]
   }
 }
